@@ -101,8 +101,8 @@ class RoomAdmin(admin.ModelAdmin):
     )
 
     def count_amenities(self, obj):
-        print(obj.amenities.all())
-        return obj.amenities.all()
+        print(obj.amenities.count())
+        return obj.amenities.count()
 
     count_amenities.short_description = "hello sexy!"
 
