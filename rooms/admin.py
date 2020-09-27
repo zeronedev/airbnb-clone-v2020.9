@@ -85,6 +85,7 @@ class RoomAdmin(admin.ModelAdmin):
         "instant_book",
         "count_amenities",
         "count_potos",
+        "total_rating",
     )
 
     ordering = ("name", "price", "bedrooms")
@@ -110,7 +111,7 @@ class RoomAdmin(admin.ModelAdmin):
     )
 
     def count_amenities(self, obj):
-        print(obj.amenities.count())
+        # print(obj.amenities.count())
         return obj.amenities.count()
 
     # count_amenities.short_description = "hello sexy!"
