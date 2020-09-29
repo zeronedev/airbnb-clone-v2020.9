@@ -4,7 +4,7 @@ from core import models as core_models
 
 class List(core_models.TimeStampedModel):
 
-    """ List Model Defintion """
+    """ List Model Defintion(정의) """
 
     name = models.CharField(max_length=80)
     user = models.ForeignKey(
@@ -14,3 +14,8 @@ class List(core_models.TimeStampedModel):
 
     def __str__(self):
         return self.name
+
+    def count_rooms(self):
+        return self.rooms.count()
+
+    count_rooms.short_description = "Number of Rooms"
