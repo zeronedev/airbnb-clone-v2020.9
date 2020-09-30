@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "lh$*9ucj4qv0a8$4ut+28sbam!&%=5@mlen_1vwg*zfvwrh8eq"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True  # 개발모드 True, 프로덕션모드 Fals
 
 ALLOWED_HOSTS = []
 
@@ -135,4 +135,7 @@ STATIC_URL = "/static/"
 
 AUTH_USER_MODEL = "users.User"
 
-MEDIA_ROOT = BASE_DIR.joinpath("uploads")
+
+MEDIA_ROOT = BASE_DIR.joinpath("uploads")  # 업로드 절대경로
+
+MEDIA_URL = "/media/"  # host/media/ 가 uploads
