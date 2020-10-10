@@ -30,7 +30,7 @@ class Amenity(AbstractItem):
 
 
 class Facility(AbstractItem):
-    """ Facility Model Definition - 편의시설 """
+    """ Facility Model Definition - 설비 """
 
     class Meta:
         verbose_name_plural = "Facilities"
