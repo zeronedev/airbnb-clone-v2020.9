@@ -129,7 +129,7 @@ class RoomAdmin(admin.ModelAdmin):
         # print(obj.amenities.count())
         return obj.amenities.count()
 
-    # count_amenities.short_description = "hello sexy!"
+    count_amenities.short_description = "Amenity Count"
 
     def count_potos(self, obj):
         return obj.photos.count()
