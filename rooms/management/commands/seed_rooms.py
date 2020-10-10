@@ -1,4 +1,5 @@
 import random
+from django.contrib.admin.utils import flatten
 from django.core.management.base import BaseCommand
 from django_seed import Seed
 from rooms import models as room_models
@@ -32,6 +33,17 @@ class Command(BaseCommand):
                 "baths": lambda x: random.randint(1, 5),
             },
         )
-        seeder.execute()
+        created_photos = seeder.execute()
+        created_clean = flatten(list(created_photos.values()))
+        print(created_clean)  # flatten 간결한 리스트로 표시 - [[]] 를 [] 로 변환
+        for pk in created_clean:
+            room = room_models.Room.objects.get(pk=pk)
+            print(room)
+            for i in range(3, random.randint(10, 17)):
+                room_models.Photo.objects.create(
+                    caption=seeder.faker.sentence(),
+                    file=f"room_photos/{random.randint(1, 31)}.webp",
+                    room=room,
+                )
 
         self.stdout.write(self.style.SUCCESS(f"{number} rooms created!"))

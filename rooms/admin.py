@@ -97,7 +97,11 @@ class RoomAdmin(admin.ModelAdmin):
         "total_rating",
     )
 
-    ordering = ("name", "price", "bedrooms")
+    ordering = (
+        "name",
+        "price",
+        "bedrooms",
+    )
 
     list_filter = (
         "instant_book",
@@ -113,7 +117,7 @@ class RoomAdmin(admin.ModelAdmin):
 
     raw_id_fields = ("host",)
 
-    search_fields = ("=city", "^host__username")
+    search_fields = ("=city", "^host__username", "^name")
 
     filter_horizontal = (
         "amenities",
@@ -129,6 +133,8 @@ class RoomAdmin(admin.ModelAdmin):
 
     def count_potos(self, obj):
         return obj.photos.count()
+
+    count_potos.short_description = "Photo Count"
 
 
 @admin.register(models.Photo)
