@@ -4,19 +4,19 @@
 {% endblock page_name %}
 
 {% block content %}
-    {% for room in potato %}
+    {% for room in rooms.object_list %}
         <h5> {{ room.name }} / ${{room.price}} </h5>
     {% endfor %}
 
     <h5>
-    {% if page is not 1 %}
-        <a href="?page={{page|add:-1}}">이전페이지</a>
+    {% if rooms.has_previous %}
+        <a href="?page={{rooms.number|add:-1}}">이전페이지</a>
     {% endif %}
     
-    <a href="?page={{page}}">{{page}}</a>
+    Page {{rooms.number}} of {{rooms.paginator.num_pages}}
 
-    {% if not page >= page_count %}
-        <a href="?page={{page|add:+1}}">다음페이지</a>
+    {% if rooms.has_next %}
+        <a href="?page={{rooms.number|add:1}}">다음페이지</a>
     {% endif %}
     </h5>
 {% endblock content %}
