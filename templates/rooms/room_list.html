@@ -3,8 +3,12 @@
     Home
 {% endblock page_name %}
 
+
 {% block content %}
-    {% for room in object_list %}
+
+    {{ now }}
+
+    {% for room in rooms %}
         <h5> {{ room.name }} / ${{room.price}} </h5>
     {% endfor %}
 
