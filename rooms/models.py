@@ -91,7 +91,6 @@ class Room(core_models.TimeStampedModel):
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
-        print(self.pk)
         return reverse(
             "rooms:detail", kwargs={"pk": self.pk}
         )  # namespace:name, pk는 rooms > urls.py 의 int:pk

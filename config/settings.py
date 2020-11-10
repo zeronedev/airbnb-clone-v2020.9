@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "lh$*9ucj4qv0a8$4ut+28sbam!&%=5@mlen_1vwg*zfvwrh8eq"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True  # 개발모드 True, 프로덕션모드 Fals
+DEBUG = False  # 개발모드 True, 프로덕션모드 Fals
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = "*"
 
 
 # Application definition
